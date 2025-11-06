@@ -1,0 +1,122 @@
+{
+    "icon_theme": "Catppuccin Mocha",
+    "disable_ai": false,
+    "relative_line_numbers": true,
+    "base_keymap": "JetBrains",
+    "agent_ui_font_size": 14.0,
+    "buffer_font_family": "FiraCode Nerd Font Propo",
+    "vim_mode": true,
+    "ui_font_size": 15.0,
+    "buffer_font_size": 13.0,
+    "use_system_window_tabs": false,
+    "theme": {
+        "mode": "light",
+        "light": "Catppuccin Mocha (Blur)",
+        "dark": "One Dark"
+    },
+    "terminal": {
+        "dock": "left",
+        "toolbar": {
+            "breadcrumbs": false
+        },
+        "font_family": ".ZedMono",
+        "font_weight": 300,
+        "button": true,
+        "line_height": "comfortable",
+        "font_size": 13.0
+    },
+    "diagnostics": {
+        "button": true
+    },
+    "tab_size": 4,
+    "minimap": {
+        "show": "never"
+    },
+    "edit_predictions": {
+        "mode": "subtle"
+    },
+    "agent": {
+        "default_profile": "ask",
+        "always_allow_tool_actions": true,
+        "button": false,
+        "model_parameters": []
+    },
+    "collaboration_panel": {
+        "button": false
+    },
+    "notification_panel": {
+        "dock": "right"
+    },
+    "outline_panel": {
+        "dock": "right",
+        "button": false
+    },
+    "preview_tabs": {
+        "enable_preview_from_file_finder": true,
+        "enabled": false
+    },
+    "tabs": {
+        "show_close_button": "hover",
+        "close_position": "right",
+        "file_icons": true,
+        "git_status": false
+    },
+    "tab_bar": {
+        "show_nav_history_buttons": false,
+        "show": true
+    },
+    "title_bar": {
+        "show_branch_icon": true,
+        "show_menus": false,
+        "show_sign_in": true,
+        "show_user_picture": false,
+        "show_onboarding_banner": false,
+        "show_project_items": false,
+        "show_branch_name": true
+    },
+    "debugger": {
+        "dock": "left",
+        "button": true
+    },
+    "search": {
+        "button": true
+    },
+    "status_bar": {
+        "cursor_position_button": true,
+        "active_language_button": true
+    },
+    "project_panel": {
+        "hide_hidden": false,
+        "hide_root": false,
+        "indent_size": 12.0,
+        "git_status": true,
+        "folder_icons": true,
+        "file_icons": true,
+        "entry_spacing": "comfortable",
+        "hide_gitignore": false,
+        "dock": "right"
+    },
+    "git": {
+        "inline_blame": {
+            "enabled": false
+        }
+    },
+    "toolbar": {
+        "breadcrumbs": false,
+        "quick_actions": false,
+        "selections_menu": false,
+        "agent_review": false,
+        "code_actions": false
+    },
+    "wsl_connections": [
+        {
+            "distro_name": "Ubuntu-24.04",
+            "user": null,
+            "projects": [
+                {
+                    "paths": ["/home/fparol4"]
+                }
+            ]
+        }
+    ]
+}

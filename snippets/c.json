@@ -1,0 +1,39 @@
+{
+    "c-main": {
+        "prefix": "main",
+        "body": ["int main(int argc, char *argv[])", "{$0", "\treturn 0;", "}"]
+    },
+    "pf": {
+        "prefix": "pf",
+        "body": ["printf(\"$1\");"]
+    },
+    "pfn": {
+        "prefix": "pfn",
+        "body": ["printf(\"$1\\n\");"]
+    },
+    "prd": {
+        "prefix": "prd",
+        "body": ["printf(\"x0: %d\\n\", $1);"],
+        "description": "printf debug integer"
+    },
+    "prs": {
+        "prefix": "prs",
+        "body": ["printf(\"x0: %s\\n\", \"$1\");"],
+        "description": "printf debug string"
+    },
+    "prf": {
+        "prefix": "prf",
+        "body": ["printf(\"x0: %f\\n\", $1);"],
+        "description": "printf debug float"
+    },
+    "prc": {
+        "prefix": "prc",
+        "body": ["printf(\"x0: %c\\n\", '$1');"],
+        "description": "printf debug char"
+    },
+    "prp": {
+        "prefix": "prp",
+        "body": ["printf(\"x0: %p\\n\", $1);"],
+        "description": "printf debug pointer"
+    }
+}
