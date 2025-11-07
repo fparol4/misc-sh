@@ -4,6 +4,7 @@ gccx() {
   local execute_flag=false
   local flags=(-g -O0 -Wall -Wextra -Werror)
   local has_input_sources=false
+  local lib_archives=()
 
   for arg in "$@"; do
     if [[ "$arg" == "--" ]]; then
@@ -18,10 +19,9 @@ gccx() {
       args+=("$arg")
     else
       if [[ -d "$arg" ]]; then
-        echo "Directory '$arg' found. Searching recursively..."
         while IFS= read -r -d '' file; do
           sources+=("$file")
-        done < <(find "$arg" -name "*.c" -not -path "*/.*" -type f -print0)
+        done < <(find "$arg" -type f -name "*.c" -not -path "*/.*" -print0)
         has_input_sources=true
       elif [[ -f "$arg" ]]; then
         sources+=("$arg")
@@ -32,11 +32,12 @@ gccx() {
     fi
   done
 
+  # If no sources provided, search from current dir
   if [[ "$has_input_sources" == false ]]; then
     echo "No source files or directories provided. Searching recursively from ."
     while IFS= read -r -d '' file; do
       sources+=("$file")
-    done < <(find . -name "*.c" -not -path "./.*" -type f -print0)
+    done < <(find . -type f -name "*.c" -not -path "./.*" -print0)
   fi
 
   if [[ ${#sources[@]} -eq 0 ]]; then
@@ -44,11 +45,17 @@ gccx() {
     return 1
   fi
 
-  echo "--- Compiling ---"
-  echo "Files: ${sources[*]}"
-  echo "Flags: ${flags[*]}"
+  if [[ -d "./lib" ]]; then
+    while IFS= read -r -d '' a; do
+      lib_archives+=("$a")
+    done < <(find ./lib -maxdepth 1 -type f -name "*.a" -print0)
+  fi
 
-  gcc "${flags[@]}" -o x0 "${sources[@]}"
+  if [[ -d "./lib" ]]; then
+    flags+=(-I./include)
+  fi
+
+  gcc "${flags[@]}" -o x0 "${sources[@]}" "${lib_archives[@]}"
   local compile_status=$?
 
   if [[ $compile_status -ne 0 ]]; then
@@ -56,15 +63,11 @@ gccx() {
     return $compile_status
   fi
 
-  echo "Compilation successful: ./x0"
-
   if [[ "$execute_flag" == true ]]; then
     echo "--- Executing ./x0 ---"
     [[ ${#args[@]} -gt 0 ]] && echo "Runtime args: ${args[*]}"
-
     ./x0 "${args[@]}"
     local execute_status=$?
-
     echo "--- Execution finished (code: $execute_status) ---"
     return $execute_status
   fi
