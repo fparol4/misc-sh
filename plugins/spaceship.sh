@@ -11,7 +11,6 @@ SPACESHIP_PROMPT_ORDER=(
   line_sep
   jobs
   exit_code
-  char
 )
 
 SPACESHIP_USER_SHOW=always

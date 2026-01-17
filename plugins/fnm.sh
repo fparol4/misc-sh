@@ -4,4 +4,4 @@ if [ -d "$FNM_PATH" ]; then
   eval "$(fnm env)"
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/fcardozo/.local/bin/homebrew/bin/brew shellenv)"
