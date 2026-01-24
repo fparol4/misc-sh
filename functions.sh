@@ -1,5 +1,6 @@
 source $HOME/.config/zsh/lib/gccx.sh
 source $HOME/.config/zsh/lib/normf.sh
+source $HOME/.config/zsh/lib/extprot.sh
 
 kp() {
   [ -z "$1" ] && echo "Uso: kill_port <porta>" && return 1
