@@ -1,8 +1,8 @@
 # WORKSPACE
 alias c='clear'
 alias n='norminette'
-alias exp='explorer.exe'
+alias exp='nautilus'
 
 # PROGRAMS
-P_PATH='/home/fcardozo/.local/bin'
-alias zed='$P_PATH/zed/bin/zed'
+alias webstorm='setsid /home/fabricio.parola/.local/apps/web-storm/bin/webstorm.sh >/dev/null 2>&1'
+alias surf='windsurf'

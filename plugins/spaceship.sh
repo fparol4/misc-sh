@@ -4,12 +4,8 @@ plugins=(git)
 SPACESHIP_PROMPT_ORDER=(
   user
   dir
-  host
   git
-  hg
   exec_time
-  line_sep
-  jobs
   exit_code
 )
 
