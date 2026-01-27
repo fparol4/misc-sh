@@ -4,5 +4,7 @@ alias n='norminette'
 alias exp='explorer.exe'
 
 # PROGRAMS
-P_PATH='/home/fcardozo/.local/bin'
-alias zed='$P_PATH/zed/bin/zed'
+wg() {
+    local TARGET_PATH=$(readlink -f "${1:-$PWD}")
+    windsurf --folder-uri "vscode-remote://wsl+Ubuntu-24.04$TARGET_PATH"
+}
