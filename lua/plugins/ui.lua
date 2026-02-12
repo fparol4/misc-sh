@@ -1,21 +1,51 @@
 return {
-  -- "ellisonleao/gruvbox.nvim",
-  -- "rebelot/kanagawa.nvim",
-  -- "shaunsingh/nord.nvim",
-  -- "jacoborus/tender.vim",
-  -- "yorumicolors/yorumi.nvim",
-  -- "nyoom-engineering/oxocarbon.nvim",
-  -- "EdenEast/nightfox.nvim",
-  -- "talha-akram/noctis.nvim",
-  "oxfist/night-owl.nvim",
-  "Yazeed1s/oh-lucy.nvim",
-  "projekt0n/github-nvim-theme",
+  -- Disable bufferline to avoid catppuccin integration error
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      integrations = {
+        blink_cmp = true,
+        dashboard = true,
+        flash = true,
+        gitsigns = true,
+        mason = true,
+        mini = {
+          enabled = true,
+          indentscope_color = "",
+        },
+        native_lsp = {
+          enabled = true,
+          virtual_text = {
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
+          },
+          underlines = {
+            errors = { "underline" },
+            hints = { "underline" },
+            warnings = { "underline" },
+            information = { "underline" },
+          },
+        },
+        noice = true,
+        notify = true,
+        semantic_tokens = true,
+        treesitter = true,
+        which_key = true,
+      },
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "oh-lucy",
       colorscheme = "catppuccin-macchiato",
-      -- colorscheme = "github_light_high_contrast",
     },
   },
 }

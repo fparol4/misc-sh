@@ -1,5 +1,3 @@
-local nvim_root = vim.fn.getcwd()
-
 return {
   "folke/snacks.nvim",
   opts = {
@@ -8,33 +6,30 @@ return {
     },
     picker = {
       hidden = true,
-      sources = {
-        explorer = {
-          layout = { layout = { position = "right" } },
-          auto_close = false,
-          follow_file = false,
-          focus = "list",
-          follow = false,
-          cwd = nvim_root,
-          follow_cwd = false,
+    },
+    dashboard = {
+      enabled = true,
+      preset = {
+        header = [[
+██████╗ ██╗  ██╗
+██╔═████╗╚██╗██╔╝
+██║██╔██║ ╚███╔╝ 
+████╔╝██║ ██╔██╗ 
+╚██████╔╝██╔╝ ██╗
+╚═════╝ ╚═╝  ╚═╝
+]],
+        -- stylua: ignore
+        keys = {
+          { icon = " ", key = "f", desc = "Find File", action = ":lua LazyVim.pick()()" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua LazyVim.pick('oldfiles')()" },
+          { icon = " ", key = "g", desc = "Find Text", action = ":lua LazyVim.pick('live_grep')()" },
+          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+          { icon = " ", key = "c", desc = "Config", action = ":lua LazyVim.pick.config_files()" },
+          { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
+          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
     },
-    dashboard = { enabled = false },
   },
-  config = function(_, opts)
-    require("snacks").setup(opts)
-
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "SnacksPickerOpen",
-      callback = function(event)
-        if event.data == "explorer" then
-          require("snacks.picker").open("explorer", {
-            cwd = nvim_root,
-            follow_cwd = false,
-          })
-        end
-      end,
-    })
-  end,
 }

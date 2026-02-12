@@ -7,7 +7,4 @@ return {
     user = "fparola",
     mail = "fabricio.parola@gmail.com",
   },
-  config = function(_, opts)
-    require("42header").setup(opts)
-  end,
 }
