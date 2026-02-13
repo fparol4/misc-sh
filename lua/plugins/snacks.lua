@@ -10,15 +10,6 @@ return {
     dashboard = {
       enabled = true,
       preset = {
-        header = [[
-██████╗ ██╗  ██╗
-██╔═████╗╚██╗██╔╝
-██║██╔██║ ╚███╔╝ 
-████╔╝██║ ██╔██╗ 
-╚██████╔╝██╔╝ ██╗
-╚═════╝ ╚═╝  ╚═╝
-]],
-        -- stylua: ignore
         keys = {
           { icon = " ", key = "f", desc = "Find File", action = ":lua LazyVim.pick()()" },
           { icon = " ", key = "r", desc = "Recent Files", action = ":lua LazyVim.pick('oldfiles')()" },
