@@ -3,7 +3,7 @@ return {
   opts = {
     explorer = {
       enabled = true,
-      replace_netrw = true,
+      replace_netrw = false,
     },
     picker = {
       sources = {
@@ -18,16 +18,26 @@ return {
     dashboard = {
       enabled = true,
       preset = {
+        header = [[
+███╗   ██╗██╗   ██╗██╗███╗   ███╗
+████╗  ██║██║   ██║██║████╗ ████║
+██╔██╗ ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+        ]],
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua LazyVim.pick()()" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":lua LazyVim.pick('oldfiles')()" },
-          { icon = " ", key = "g", desc = "Find Text", action = ":lua LazyVim.pick('live_grep')()" },
-          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = " ", key = "c", desc = "Config", action = ":lua LazyVim.pick.config_files()" },
-          { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
-          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+          { icon = " ", key = "f", desc = "Files", action = ":lua LazyVim.pick()()" },
+          { icon = " ", key = "r", desc = "Recent", action = ":lua LazyVim.pick('oldfiles')()" },
+          { icon = " ", key = "g", desc = "Search", action = ":lua LazyVim.pick('live_grep')()" },
+          { icon = " ", key = "s", desc = "Restore", section = "session" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
+      },
+      sections = {
+        { section = "header" },
+        { section = "keys", gap = 1, padding = 1 },
+        { text = { { "fparol4 λ", hl = "special" } }, align = "center" },
       },
     },
   },

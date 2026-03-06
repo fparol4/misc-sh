@@ -23,9 +23,9 @@ return {
 
       local orig_get = mini_icons.get
       mini_icons.get = function(category, name)
-        if category == "file" then
-          return orig_get("default", "file")
-        end
+        -- if category == "file" then
+        --   return orig_get("default", "file")
+        -- end
         return orig_get(category, name)
       end
       mini_icons.mock_nvim_web_devicons()

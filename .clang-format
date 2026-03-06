@@ -1,8 +1,8 @@
 BasedOnStyle: LLVM
 
 # Indentação
-IndentWidth: 2
 UseTab: Never
+IndentWidth: 2
 TabWidth: 2
 
 # Limite de coluna
