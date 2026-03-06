@@ -2,9 +2,17 @@ return {
   "folke/snacks.nvim",
   opts = {
     explorer = {
-      ui = { position = "right" },
+      enabled = true,
+      replace_netrw = true,
     },
     picker = {
+      sources = {
+        explorer = {
+          layout = { layout = { position = "right" } },
+          follow_file = false,
+          cwd = vim.g.project_root,
+        },
+      },
       hidden = true,
     },
     dashboard = {

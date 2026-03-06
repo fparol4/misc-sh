@@ -32,7 +32,7 @@ require("lazy").setup({
   defaults = {
     lazy = false,
   },
-  install = { colorscheme = { "catppuccin", "tokyonight" } },
+  install = { colorscheme = { "nightfox" } },
   checker = { enabled = false },
   performance = {
     rtp = {
