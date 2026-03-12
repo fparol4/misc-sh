@@ -1,3 +1,5 @@
+local colorscheme = require("config.colorscheme")
+
 return {
   {
     "EdenEast/nightfox.nvim",
@@ -14,9 +16,32 @@ return {
     },
   },
   {
+    "folke/tokyonight.nvim",
+    opts = {
+      style = "night",
+      transparent = false,
+      terminal_colors = true,
+    },
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      flavour = "mocha",
+      transparent_background = false,
+      term_colors = true,
+      integrations = {
+        snacks = true,
+        mini = true,
+        notify = true,
+        which_key = true,
+      },
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nightfox",
+      colorscheme = colorscheme,
     },
   },
   {
@@ -24,7 +49,7 @@ return {
     event = "VeryLazy",
     enabled = false,
     opts = function(_, opts)
-      opts.options.theme = "nightfox"
+      opts.options.theme = colorscheme
     end,
   },
 }

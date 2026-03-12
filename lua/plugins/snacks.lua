@@ -1,5 +1,30 @@
 return {
   "folke/snacks.nvim",
+  init = function()
+    local function apply_explorer_transparency()
+      if not vim.g.transparent_explorer then return end
+      local groups = {
+        "SnacksPicker",
+        "SnacksPickerList",
+        "SnacksPickerInput",
+        "SnacksPickerBox",
+        "SnacksPickerBorder",
+        "SnacksPickerTitle",
+      }
+      for _, group in ipairs(groups) do
+        local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+        hl.bg = nil
+        hl.ctermbg = nil
+        vim.api.nvim_set_hl(0, group, hl)
+      end
+    end
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = apply_explorer_transparency,
+    })
+
+    apply_explorer_transparency()
+  end,
   opts = {
     explorer = {
       enabled = true,
@@ -39,6 +64,9 @@ return {
           cwd = vim.g.project_root,
           win = {
             list = {
+              wo = {
+                winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+              },
               keys = {
                 ["."] = "explorer_focus_global_cwd",
                 ["Y"] = { "explorer_yank_relative", mode = { "n", "x" } },
@@ -48,6 +76,14 @@ return {
         },
       },
       hidden = true,
+    },
+    styles = {
+      explorer = {
+        backdrop = false,
+        wo = {
+          winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+        },
+      },
     },
     dashboard = {
       enabled = true,
