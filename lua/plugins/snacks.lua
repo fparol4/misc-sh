@@ -3,14 +3,48 @@ return {
   opts = {
     explorer = {
       enabled = true,
-      replace_netrw = false,
+      replace_netrw = true,
     },
     picker = {
+      actions = {
+        explorer_focus_global_cwd = function(picker)
+          local cwd = picker:dir()
+          picker:set_cwd(cwd)
+          vim.cmd.cd(cwd)
+          vim.g.project_root = cwd
+          picker:find()
+        end,
+        explorer_yank_relative = function(picker)
+          local files = {}
+          local base = vim.g.project_root or picker:cwd()
+
+          if vim.fn.mode():find("^[vV]") then
+            picker.list:select()
+          end
+
+          for _, item in ipairs(picker:selected({ fallback = true })) do
+            local path = require("snacks.picker.util").path(item)
+            table.insert(files, vim.fs.relpath(base, path) or path)
+          end
+
+          picker.list:set_selected()
+          vim.fn.setreg(vim.v.register or "+", table.concat(files, "\n"), "l")
+          Snacks.notify.info("Yanked " .. #files .. " relative paths")
+        end,
+      },
       sources = {
         explorer = {
           layout = { layout = { position = "right" } },
           follow_file = false,
           cwd = vim.g.project_root,
+          win = {
+            list = {
+              keys = {
+                ["."] = "explorer_focus_global_cwd",
+                ["Y"] = { "explorer_yank_relative", mode = { "n", "x" } },
+              },
+            },
+          },
         },
       },
       hidden = true,
