@@ -60,6 +60,8 @@ local function all_colorschemes()
   Snacks.picker.colorschemes({ confirm = persist_colorscheme })
 end
 
+local smart_paste = require("config.smart_paste")
+
 vim.keymap.set("n", "<leader>e", function()
   Snacks.explorer({ cwd = vim.g.project_root })
 end, { desc = "File Explorer (Root)" })
@@ -80,3 +82,4 @@ vim.keymap.set("n", "<X1Mouse>", "<C-o>", { desc = "Jump Back" })
 vim.keymap.set("n", "<X2Mouse>", "<C-i>", { desc = "Jump Forward" })
 
 vim.keymap.set("x", "<leader>l", yank_relative_path_with_lines, { desc = "Yank Relative" })
+vim.keymap.set("n", "p", smart_paste.smart_paste, { desc = "Smart Paste File Link" })

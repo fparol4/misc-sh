@@ -4,6 +4,7 @@ vim.g.autoformat = false
 vim.opt.conceallevel = 0
 vim.g.project_root = vim.uv.cwd()
 vim.g.transparent_explorer = true
+vim.g.markdown_folding = 1
 
 -- TAB (4 SPACES)
 -- vim.opt.tabstop = 4
@@ -18,7 +19,6 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = false
 
 -- OTHER
-vim.opt.clipboard = ""
 vim.opt.laststatus = 0
 vim.opt.wrap = true
 vim.diagnostic.enable(false)
