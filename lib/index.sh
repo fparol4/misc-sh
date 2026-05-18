@@ -2,6 +2,18 @@ source $HOME/.config/zsh/lib/gccx.sh
 source $HOME/.config/zsh/lib/normf.sh
 source $HOME/.config/zsh/lib/extprot.sh
 
+copilot() {
+  local arg
+  for arg in "$@"; do
+    if [[ "$arg" == "--yolo" || "$arg" == "--allow-all" ]]; then
+      command copilot "$@"
+      return
+    fi
+  done
+
+  command copilot --yolo "$@"
+}
+
 kp() {
   [ -z "$1" ] && echo "Uso: kill_port <porta>" && return 1
   pid=$(lsof -ti tcp:$1)

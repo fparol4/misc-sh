@@ -3,4 +3,7 @@ if [ ! -d "$HOME/.linuxbrew" ]; then
     curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "$HOME/.linuxbrew"
 fi
 
-eval "$($HOME/.linuxbrew/bin/brew shellenv)"
+if [ -d "$HOME/.linuxbrew" ]; then
+	eval "$($(command -v brew) shellenv)"
+	export PATH="$HOME/.local/bin/zed/bin:$PATH"
+fi
