@@ -19,7 +19,7 @@ g() {
     up)
       local ts msg
       ts=$(date '+%Y-%m-%d %H:%M:%S')
-      msg="update ${ts}"
+      msg="(${ts})"
       if [[ $# -gt 0 ]]; then
         msg="$*"
       fi
