@@ -36,10 +36,3 @@ g() {
       ;;
   esac
 }
-
-# Optional shorthand aliases
-alias gp='git push'
-alias gf='git fetch'
-alias gc='git commit'
-alias gck='git checkout'
-alias gs='git stash'
