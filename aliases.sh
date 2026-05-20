@@ -4,6 +4,7 @@ alias n='norminette'
 alias exp='nautilus'
 alias vi='nvim'
 alias npd='npm config delete registry'
+alias xcp='xclip -selection clipboard'
 
 # OTHER
 alias npr='node -nolazy -r ts-node/register/transpile-only'

@@ -1,6 +1,7 @@
 source $HOME/.config/zsh/lib/gccx.sh
 source $HOME/.config/zsh/lib/normf.sh
 source $HOME/.config/zsh/lib/extprot.sh
+source $HOME/.config/zsh/lib/go2.sh
 
 copilot() {
   local arg
